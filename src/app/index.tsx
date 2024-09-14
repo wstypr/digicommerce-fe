@@ -1,15 +1,7 @@
-import { Button } from '../components/ui/button';
-import { Tooltip } from '../components/ui/tooltip';
+import { AppRouter } from './routes';
 
 const App = () => {
-    return (
-        <>
-            <h1 className="mb-4">Hello from the app</h1>
-            <Tooltip message="Hello from the tooltip">
-                <Button variant="outline">Click Me</Button>
-            </Tooltip>
-        </>
-    );
+    return <AppRouter />;
 };
 
 export default App;

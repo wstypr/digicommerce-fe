@@ -1,7 +1,7 @@
-import { tv, VariantProps } from 'tailwind-variants';
 import { twMerge } from 'tailwind-merge';
+import { tv, VariantProps } from 'tailwind-variants';
 
-const inputStyle = tv({
+const textareaStyle = tv({
     base: 'border font-extralight transition duration-200 placeholder:text-slate-400 text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:shadow-md shadow-sm w-full',
     variants: {
         inputSize: {
@@ -15,9 +15,9 @@ const inputStyle = tv({
     },
 });
 
-type TInput = VariantProps<typeof inputStyle>;
-interface InputProps extends TInput, React.ComponentPropsWithRef<'input'> {}
+type TTextarea = VariantProps<typeof textareaStyle>;
+interface InputProps extends TTextarea, React.ComponentPropsWithRef<'textarea'> {}
 
-export const Input = (props: InputProps) => {
-    return <input {...props} className={twMerge(inputStyle({ ...props }), props.className)} />;
+export const Textarea = (props: InputProps) => {
+    return <textarea {...props} className={twMerge(textareaStyle({ ...props }), props.className)} />;
 };

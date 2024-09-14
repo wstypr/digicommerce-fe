@@ -7,12 +7,12 @@ const buttonStyle = tv({
         variant: {
             primary: 'bg-primary-500 text-white hover:bg-primary-400 active:bg-primary-600 border border-primary-500',
             secondary: 'bg-secondary-50/50 text-black hover:bg-secondary-300 active:bg-secondary-400 border border-secondary-50/50',
-            outline: 'border border-primary-500 text-primary-500 hover:bg-primary-100  active:bg-primary-200',
+            outline: 'border text-slate-700 hover:border-slate-400 active:bg-slate-400',
         },
         size: {
-            small: 'text-sm px-2 py-1 rounded-md',
-            medium: 'text-base px-4 py-2 rounded-lg',
-            large: 'text-lg px-6 py-4 rounded-xl',
+            small: 'text-xs px-2 py-1 rounded-md',
+            medium: 'text-sm px-4 py-2 rounded-lg',
+            large: 'text-base px-6 py-4 rounded-xl',
         },
         isIconOnly: {
             true: 'p-2',
@@ -31,12 +31,14 @@ interface ButtonProps extends TButton, React.ComponentPropsWithRef<'button'> {
 }
 
 export const Button = (props: ButtonProps) => {
+    const { startContent, endContent, ...buttonProps } = props;
+
     return (
-        <button {...props} className={twMerge(buttonStyle({ ...props }), props.className)}>
+        <button {...buttonProps} className={twMerge(buttonStyle({ ...props }), props.className)}>
             <div className="flex items-center gap-2">
-                {props.startContent}
+                {startContent}
                 <div>{props.children}</div>
-                {props.endContent}
+                {endContent}
             </div>
         </button>
     );
